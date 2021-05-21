@@ -184,8 +184,9 @@ config:
   # A list of commands to execute. Beware that the commands are not executed in a shell. If you need shell features (e.g. wildcards or pipes),
   # wrap your command in `sh -c`. Generic packages without commands result in an empty tar file.
   commands:
-  - ["echo", "hello world"]
-  - ["sh", "-c", "ls *"]
+    build:
+    - ["echo", "hello world"]
+    - ["sh", "-c", "ls *"]
 ```
 
 ## Package Variants

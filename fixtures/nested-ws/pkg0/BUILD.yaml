@@ -7,4 +7,5 @@ packages:
   - wsa:app
   config:
     commands:
-    - ["echo"]
+      build:
+      - ["echo"]

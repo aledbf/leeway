@@ -5,4 +5,5 @@ packages:
       - "*.txt"
     config:
       commands:
+        build:
         - ["echo"]

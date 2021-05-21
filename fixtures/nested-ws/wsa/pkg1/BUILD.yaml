@@ -3,7 +3,8 @@ packages:
   type: generic
   config:
     commands:
-    - ["echo"]
+      build:
+      - ["echo"]
 scripts:
 - name: echo
   script: |

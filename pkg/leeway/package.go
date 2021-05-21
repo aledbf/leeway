@@ -464,7 +464,13 @@ func (cfg DockerPkgConfig) AdditionalSources() []string {
 
 // GenericPkgConfig configures a generic package
 type GenericPkgConfig struct {
-	Commands [][]string `yaml:"commands"`
+	DontTest bool               `yaml:"dontTest,omitempty"`
+	Commands GenericPkgCommands `yaml:"commands,omitempty"`
+}
+
+type GenericPkgCommands struct {
+	Build [][]string `yaml:"build,omitempty"`
+	Test  [][]string `yaml:"test,omitempty"`
 }
 
 // AdditionalSources returns a list of unresolved sources coming in through this configuration

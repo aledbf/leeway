@@ -20,7 +20,7 @@ func checkArgsReferingToPackage(pkg *leeway.Package) ([]Finding, error) {
 	}
 
 	var findings []Finding
-	for i, cmd := range cfg.Commands {
+	for i, cmd := range cfg.Commands.Build {
 		for _, seg := range cmd {
 			if !filesystemSafePathPattern.MatchString(seg) {
 				continue

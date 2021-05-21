@@ -250,7 +250,7 @@ func TestPackageDefinition(t *testing.T) {
 			Layouts: []map[string]string{
 				{
 					"WORKSPACE.yaml":  "",
-					"pkg1/BUILD.yaml": "packages:\n- name: foo\n  type: generic\n  srcs:\n  - \"doesNotExist\"\n  config:\n    commands:\n    - [\"echo\", \"${msg}\"]",
+					"pkg1/BUILD.yaml": "packages:\n- name: foo\n  type: generic\n  srcs:\n  - \"doesNotExist\"\n  config:\n    commands:\n      build:\n      - [\"echo\", \"${msg}\"]",
 				},
 				{},
 			},

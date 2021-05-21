@@ -16,7 +16,7 @@ func TestResolveBuiltinVariables(t *testing.T) {
 		{YarnPackage, YarnPkgConfig{TSConfig: "${__pkg_version}.json", Packaging: YarnLibrary}, nil, YarnPkgConfig{TSConfig: "this-version.json", Packaging: YarnLibrary}},
 		{DockerPackage, DockerPkgConfig{Dockerfile: "leeway.Dockerfile", Image: []string{"foobar:${__pkg_version}"}}, nil, DockerPkgConfig{Dockerfile: "leeway.Dockerfile", Image: []string{"foobar:this-version"}}},
 		{GoPackage, GoPkgConfig{Packaging: GoApp, BuildFlags: []string{"-ldflags", "-X cmd.version=${__pkg_version}"}}, nil, GoPkgConfig{Packaging: GoApp, BuildFlags: []string{"-ldflags", "-X cmd.version=this-version"}}},
-		{GenericPackage, GenericPkgConfig{Commands: [][]string{{"echo", "${__pkg_version}"}}}, nil, GenericPkgConfig{Commands: [][]string{{"echo", "this-version"}}}},
+		{GenericPackage, GenericPkgConfig{Commands: GenericPkgCommands{Build: [][]string{{"echo", "${__pkg_version}"}}}}, nil, GenericPkgConfig{Commands: GenericPkgCommands{Build: [][]string{{"echo", "this-version"}}}}},
 	}
 
 	for _, test := range tests {
